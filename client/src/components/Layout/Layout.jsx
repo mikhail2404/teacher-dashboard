@@ -6,7 +6,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
 import Calendar from "../../pages/Calendar/Calendar.jsx";
 import DataGrid from "../../pages/DataGrid/DataGrid.jsx";
-import {withLocation} from "../../HOC/withLocation.js";
+import {withLocation} from "../../HOC/withLocation.jsx";
 
 class Layout extends Component {
   render() {
