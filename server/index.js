@@ -22,7 +22,7 @@ mongoose.connect(process.env.DB_CONNECT)
 .then(()=> console.log("Database connected"))
 .catch(err => console.log(err))
 
-app.get('/test/dashboard', async (req, res)=>{
+app.get('/api/dashboard', async (req, res)=>{
     try {
         const dashboardData = await DashboardModel.find();
         res.json(dashboardData);
@@ -31,7 +31,7 @@ app.get('/test/dashboard', async (req, res)=>{
     }
 })
 
-app.get('/test/students', async (req, res) => {
+app.get('/api/students', async (req, res) => {
     try {
         const students = await StudentModel.find();
         res.json(students);
