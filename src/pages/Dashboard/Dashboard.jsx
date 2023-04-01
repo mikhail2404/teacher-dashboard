@@ -30,18 +30,19 @@ const Dashboard = () => {
               </div>
             </div>
             <div className={css.cards}>
-              {dashboardData.map((card, index) => (
-                  <div key={index} className={css.card}>
-                    <div className={css.cardHead}>
-                      <span>{card.title}</span>
-                      <span>+{card.change}</span>
-                    </div>
+              {/*{dashboardData.map((card, index) => (*/}
+              {/*    <div key={index} className={css.card}>*/}
+              {/*      <div className={css.cardHead}>*/}
+              {/*        <span>{card.title}</span>*/}
+              {/*        <span>+{card.change}</span>*/}
+              {/*      </div>*/}
 
-                    <div className={css.cardAmount}>
-                      <span>{groupNumber(card.amount)}</span>
-                    </div>
-                  </div>
-              ))}
+              {/*      <div className={css.cardAmount}>*/}
+              {/*        <span>{groupNumber(card.amount)}</span>*/}
+              {/*      </div>*/}
+              {/*    </div>*/}
+              {/*))}*/}
+              {dashboardData}
             </div>
           </div>
 
