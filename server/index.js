@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 5500;
 app.use(cors());
 
 //import routes
-const DashboardRoute = require('./routes/dashboard');
-const studentsRouter = require('./routes/student');
+const DashboardModel = require("./models/Dashboard");
+const StudentModel = require("./models/Student");
 
 
 //connect to mongodb ..
@@ -22,10 +22,28 @@ mongoose.connect(process.env.DB_CONNECT)
 .then(()=> console.log("Database connected"))
 .catch(err => console.log(err))
 
+app.get('/test/dashboard', async (req, res)=>{
+    try {
+        const dashboardData = await DashboardModel.find();
+        res.json(dashboardData);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+})
 
-app.use('/test', DashboardRoute);
-app.use('/test', studentsRouter);
+app.get('/test/students', async (req, res) => {
+    try {
+        const students = await StudentModel.find();
+        res.json(students);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
+
+if (process.env.API_PORT) {
+    app.listen(process.env.API_PORT);
+}
 
 
 //connect to server
