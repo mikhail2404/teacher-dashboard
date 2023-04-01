@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import MaterialReactTable from "material-react-table";
-import { userData } from '../../data';
 import './DataGrid.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
@@ -9,7 +8,7 @@ const DataGrid = () => {
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
-        axios.get('/test/students')
+        axios.get('/students')
             .then(response => {
                 setStudents(response.data);
             })
