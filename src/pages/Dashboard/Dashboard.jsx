@@ -6,7 +6,6 @@ import axios from "axios";
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState([]);
-
   useEffect(() => {
     axios.get('/test/dashboard')
         .then(response => {
