@@ -7,7 +7,6 @@ const app = express();
 //use express.json() to get data into json format
 app.use(express.json());
 //Port 
-const PORT = process.env.PORT || 5500;
 
 //use cors
 app.use(cors());
@@ -49,4 +48,3 @@ if (process.env.API_PORT) {
 
 
 //connect to server
-app.listen(PORT, ()=> console.log("Server connected") );
