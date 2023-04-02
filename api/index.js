@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
 
@@ -17,9 +17,9 @@ const StudentModel = require("./models/Student");
 
 
 //connect to mongodb ..
-mongoose.connect(process.env.DB_CONNECT)
-.then(()=> console.log("Database connected"))
-.catch(err => console.log(err))
+// mongoose.connect(process.env.DB_CONNECT)
+// .then(()=> console.log("Database connected"))
+// .catch(err => console.log(err))
 
 app.get('/api/dashboard', async (req, res)=>{
     res.json('hello world 2 '+Date.now());
@@ -47,4 +47,4 @@ if (process.env.API_PORT) {
 }
 
 
-//connect to server
+//connect to api
