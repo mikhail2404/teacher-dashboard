@@ -68,6 +68,10 @@ body {
   padding: 1.5rem 1rem;
 }
 
+.my-dialog  {
+  transform: translate(-50%, -50%) !important;
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
@@ -82,3 +86,4 @@ body {
   background-color: darkgrey;
   width: 5px;
 }
+
