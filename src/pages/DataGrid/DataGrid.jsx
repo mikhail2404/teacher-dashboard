@@ -141,9 +141,8 @@ class DataGrid extends Component {
                         )}
                         renderTopToolbarCustomActions={() => (
                             <Button
-                                color="teal"
+                                style={{color: "#fff", background: 'teal'}}
                                 onClick={() => this.setState({ createModalOpen: true })}
-                                variant="filled"
                             >
                                 Add New Student
                             </Button>
