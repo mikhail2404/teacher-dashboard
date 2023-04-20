@@ -10,12 +10,18 @@ class CreateNewAccountModal extends Component {
                 acc[column.accessorKey ?? ''] = '';
                 return acc;
             }, {}),
+            errors: {}, // State to track errors for each field
         };
     }
 
     handleSubmit = () => {
-        this.props.onSubmit(this.state.values);
-        this.props.onClose();
+        const { values, errors } = this.state;
+        // Perform field validation before submitting
+        const formIsValid = this.validateForm();
+        if (formIsValid) {
+            this.props.onSubmit(values);
+            this.props.onClose();
+        }
     };
 
     handleChange = (e) => {
@@ -25,9 +31,27 @@ class CreateNewAccountModal extends Component {
         }));
     };
 
+    // Field validation function
+    validateForm = () => {
+        const { columns } = this.props;
+        const { values } = this.state;
+        const errors = {};
+        columns.forEach((column) => {
+            if ( !values[column.accessorKey]) {
+                errors[column.accessorKey] = `${column.header} is required`;
+            }
+        });
+        this.setState({ errors });
+        return Object.keys(errors).length === 0; // Form is valid if there are no errors
+    };
+
+
+
+
     render() {
         const { open, columns, onClose } = this.props;
-        const { values } = this.state;
+        const { values, errors } = this.state;
+
         return (
             <Dialog position={{ top: '50%', left: '50%' }} className="my-dialog" opened={open}>
                 <Title ta="center">Add New Student</Title>
@@ -40,6 +64,7 @@ class CreateNewAccountModal extends Component {
                                 name={column.accessorKey}
                                 onChange={this.handleChange}
                                 value={values[column.accessorKey ?? '']}
+                                error={errors[column.accessorKey]} // Pass error message as prop
                             />
                         ))}
                     </Stack>
